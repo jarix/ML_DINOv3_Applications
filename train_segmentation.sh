@@ -1,5 +1,5 @@
 #!/bin/sh
-python train_segmentation.py \
+python3 train_segmentation.py \
   --train-images input/pascal_voc_seg/voc_2012_segmentation_data/train_images \
   --train-masks input/pascal_voc_seg/voc_2012_segmentation_data/train_labels \
   --valid-images input/pascal_voc_seg/voc_2012_segmentation_data/valid_images \
