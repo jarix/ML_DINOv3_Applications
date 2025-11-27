@@ -33,7 +33,8 @@ def train_transforms(img_size):
         A.Resize(
             img_size[1], 
             img_size[0], 
-            always_apply=True,
+            p=1.0,  # always apply deprecated, now use probability
+            #always_apply=True,
             # interpolation=cv2.INTER_CUBIC
         ),
         A.HorizontalFlip(p=0.5),
@@ -52,8 +53,10 @@ def valid_transforms(img_size):
     """
     valid_image_transform = A.Compose([
         A.Resize(
-            img_size[1], img_size[0], 
-            always_apply=True, 
+            img_size[1], 
+            img_size[0], 
+            p=1.0,  # always apply deprecated, now use probability
+            #always_apply=True, 
             # interpolation=cv2.INTER_CUBIC
         ),
         A.Normalize(mean=IMG_MEAN, std=IMG_STD, max_pixel_value=255.)
