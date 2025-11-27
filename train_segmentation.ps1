@@ -1,0 +1,12 @@
+python train_segmentation.py `
+  --train-images input\pascal_voc_seg\voc_2012_segmentation_data\train_images `
+  --train-masks input\pascal_voc_seg\voc_2012_segmentation_data\train_labels `
+  --valid-images input\pascal_voc_seg\voc_2012_segmentation_data\valid_images `
+  --valid-masks input\pascal_voc_seg\voc_2012_segmentation_data\valid_labels `
+  --config segmentation_configs\voc.yaml `
+  --weights dinov3_vits16_pretrain_lvd1689m-08c60483.pth `
+  --model-name dinov3_vits16 `
+  --epochs 50 `
+  --out-dir voc_seg_transfer_learn `
+  --imgsz 640 640 `
+  --batch 12
