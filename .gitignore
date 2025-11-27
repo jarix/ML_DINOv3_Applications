@@ -2,7 +2,7 @@
 *.swo
 __pycache__
 
-.env
+.venv
 weights/*
 !weights/readme.txt
 input/*
