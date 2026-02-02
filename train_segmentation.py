@@ -5,6 +5,7 @@ import torch.nn as nn
 import yaml
 import numpy as np
 import random
+import time
 
 from src.img_seg.datasets import get_images, get_dataset, get_data_loaders
 from src.img_seg.model import Dinov3Segmentation
@@ -199,6 +200,8 @@ if __name__ == '__main__':
     train_loss, train_pix_acc, train_miou = [], [], []
     valid_loss, valid_pix_acc, valid_miou = [], [], []
     
+    t1 = time.time()
+
     for epoch in range (args.epochs):
         print(f"EPOCH: {epoch + 1}")
         train_epoch_loss, train_epoch_pixacc, train_epoch_miou = train(
@@ -261,4 +264,9 @@ if __name__ == '__main__':
     )
     # Save final model.
     save_model(args.epochs, model, optimizer, criterion, out_dir, name='final_model')
-    print('TRAINING COMPLETE')
+
+    t2 = time.time()
+
+    print('TRAINING COMPLETE!')
+    print(f"Models and plots are saved in: {out_dir}")
+    print(f"Total training time: {t2 - t1:.2f} seconds")
